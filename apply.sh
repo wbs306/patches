@@ -4,6 +4,8 @@ set -e
 
 PD=$PWD/patches
 
+DEVICE="XAGA"
+
 apply_patch() {
 patches="$(readlink -f -- $1)"
 tree="$2"
@@ -20,21 +22,21 @@ done
 
 if [ $1 = kosp ];then
 echo ""
-echo "Adapt AOSP-Krypton to CEZANNE"
+echo "Adapt AOSP-Krypton to ${DEVICE}"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 fi
 
 if [ $1 = pe ];then
 echo ""
-echo "Adapt Pixel-Experience to CEZANNE"
+echo "Adapt Pixel-Experience to ${DEVICE}"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 fi
 
 if [ $1 = lineage ];then
 echo ""
-echo "Adapt LineageOS to CEZANNE"
+echo "Adapt LineageOS to ${DEVICE}"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 fi
