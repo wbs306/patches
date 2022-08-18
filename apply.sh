@@ -20,9 +20,9 @@ for project in $(cd $patches/patches/$tree; echo *);do
 done
 }
 
-if [ $1 = kosp ];then
+if [ $1 = kscope ];then
 echo ""
-echo "Adapt AOSP-Krypton to ${DEVICE}"
+echo "Adapt KaleidoscopeOS to ${DEVICE}"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 fi
@@ -30,13 +30,6 @@ fi
 if [ $1 = pe ];then
 echo ""
 echo "Adapt Pixel-Experience to ${DEVICE}"
-echo "Executing in 5 seconds - CTRL-C to exit"
-echo ""
-fi
-
-if [ $1 = lineage ];then
-echo ""
-echo "Adapt LineageOS to ${DEVICE}"
 echo "Executing in 5 seconds - CTRL-C to exit"
 echo ""
 fi
