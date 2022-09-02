@@ -1,0 +1,34 @@
+From 15fcb6e87472ff97b73b82dd6fffeb61545952da Mon Sep 17 00:00:00 2001
+From: Fabian Leuteneegger <fabian.leutenegger@bluewin.ch>
+Date: Mon, 15 Nov 2021 20:44:03 +0100
+Subject: [PATCH] Settings: Alter Smooth Display summary to match actual
+ refresh rate
+
+Change-Id: I7333ff39a06c609f42b60ba7a5d1e66b8adb8d02
+Co-authored-by: Jyotiraditya Panda <jyotiraditya@aospa.co>
+Signed-off-by: chrisw444 <wandersonrodriguesf1@gmail.com>
+---
+ .../display/PeakRefreshRatePreferenceController.java       | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/src/com/android/settings/display/PeakRefreshRatePreferenceController.java b/src/com/android/settings/display/PeakRefreshRatePreferenceController.java
+index 27ba340c6b..18af214105 100644
+--- a/src/com/android/settings/display/PeakRefreshRatePreferenceController.java
++++ b/src/com/android/settings/display/PeakRefreshRatePreferenceController.java
+@@ -89,6 +89,13 @@ public class PeakRefreshRatePreferenceController extends TogglePreferenceControl
+         super.displayPreference(screen);
+ 
+         mPreference = screen.findPreference(getPreferenceKey());
++
++        if (!Float.toString(getDefaultPeakRefreshRate()).contains("90")) {
++          String preferenceSummary = mContext.getResources().getString(
++                  R.string.peak_refresh_rate_summary);
++          mPreference.setSummary(preferenceSummary.replace("90",
++                  Integer.toString(Math.round(getDefaultPeakRefreshRate()))));
++        }
+     }
+ 
+     @Override
+-- 
+2.37.3
+
